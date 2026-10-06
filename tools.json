@@ -1,0 +1,324 @@
+[
+  {
+    "slug": "merge-pdf",
+    "name": "Merge PDF",
+    "h1": "Merge PDF files without uploading them",
+    "title": "Merge PDF Files Online — No Upload, Files Stay on Your Device | privafile",
+    "metaDescription": "Combine multiple PDFs into one file right in your browser. No upload, no signup, no watermark, no page limit. Your documents never leave your device.",
+    "shortDescription": "Combine several PDFs into one document, in any order you like.",
+    "intro": "Join two or more PDFs into a single file. Drag them into the order you want and download the result. Nothing is transmitted — your documents are read and rewritten entirely inside this browser tab.",
+    "category": "pdf",
+    "icon": "🗂️",
+    "chip": "Most used",
+    "accept": "application/pdf,.pdf",
+    "multiple": true,
+    "dropText": "Drop your PDFs here, or click to choose",
+    "acceptHint": "Two or more PDF files. Add them in any order, then rearrange.",
+    "steps": [
+      "Drop in the PDFs you want to combine. Select several at once, or add them one by one.",
+      "Drag the entries in the list to set the final page order. The top file becomes the first pages of the result.",
+      "Click <strong>Merge PDFs</strong>. Your browser reads each file and writes one combined document.",
+      "The merged file downloads straight to your device. Check the live counter — no file was uploaded."
+    ],
+    "privacyNote": "Merging is pure file rewriting: read bytes, concatenate page trees, write bytes. There is no step in that sequence that needs a network connection, so this tool does it without one.",
+    "faq": [
+      { "q": "Is there a limit on how many PDFs I can merge?", "a": "No limit is imposed by us. The practical ceiling is your device's available memory, which is generous on desktop and more modest on older phones. Fifty ordinary documents is not a problem on a laptop." },
+      { "q": "Will merging change the quality of my pages?", "a": "No. Pages are copied as they are, not re-rendered or re-compressed. Text stays selectable and images keep their original resolution." },
+      { "q": "What happens to bookmarks and form fields?", "a": "Page content is always preserved. Interactive elements such as form fields or internal bookmark trees from source files are not carried across, because combining them from several documents creates ambiguous results." },
+      { "q": "Do I need to install anything?", "a": "No. The tool runs on code your browser downloads with the page. It works offline once the page has loaded." },
+      { "q": "Can I merge password-protected PDFs?", "a": "A file that asks for a password cannot be read without it, so it cannot be merged. Remove the password in a reader that supports it first, then merge." }
+    ]
+  },
+  {
+    "slug": "split-pdf",
+    "name": "Split PDF",
+    "h1": "Split a PDF into separate files",
+    "title": "Split PDF Online — Extract Pages Without Uploading Your File | privafile",
+    "metaDescription": "Split a PDF into individual pages or custom ranges in your browser. No upload, no signup, no watermark. Your document stays on your device.",
+    "shortDescription": "Break one PDF into single pages or extract the ranges you need.",
+    "intro": "Take a PDF apart. Produce one file per page, or specify ranges such as 1-3 and 7-12 to pull out just the sections you want. All of it happens here, on your machine.",
+    "category": "pdf",
+    "icon": "✂️",
+    "chip": "PDF",
+    "accept": "application/pdf,.pdf",
+    "multiple": false,
+    "dropText": "Drop a PDF here to split it",
+    "acceptHint": "One PDF file. You choose the split points next.",
+    "steps": [
+      "Drop in the PDF you want to divide.",
+      "Choose a mode: every page as its own file, or custom ranges.",
+      "For custom ranges, type them as 1-3, 7, 10-12 — each group becomes one output file.",
+      "Click <strong>Split PDF</strong>. Each resulting file is offered as a download.",
+      "Because browsers limit automatic downloads, files are packaged as a single ZIP when there is more than one."
+    ],
+    "privacyNote": "Splitting means selecting page ranges and writing each selection to a new document. It is a local reconstruction of page trees, and this tool performs it with no network request at all.",
+    "faq": [
+      { "q": "How do I format ranges?", "a": "Use commas between groups and hyphens inside a group. 1-3, 7, 10-12 produces three files: pages one to three, page seven alone, and pages ten to twelve." },
+      { "q": "Why did I get a ZIP instead of separate files?", "a": "Browsers block a page from triggering many downloads at once, as a security measure. Packaging the results into one ZIP is the reliable way to hand you several files in a single action." },
+      { "q": "Are the pages re-compressed?", "a": "No. Original page content is copied intact. File sizes of the parts approximately sum to the original, minus a small amount of shared overhead." },
+      { "q": "Can I split only the pages that have content?", "a": "The tool splits by page number, since it does not attempt to guess which pages matter. Use the range syntax to choose exactly what you keep." }
+    ]
+  },
+  {
+    "slug": "compress-pdf",
+    "name": "Compress PDF",
+    "h1": "Compress a PDF without sending it anywhere",
+    "title": "Compress PDF Online — Reduce PDF Size Privately, No Upload | privafile",
+    "metaDescription": "Shrink PDF file size in your browser by recompressing images and stripping unused data. No upload, no signup, no watermark.",
+    "shortDescription": "Reduce PDF file size by recompressing images and dropping unused objects.",
+    "intro": "Make a heavy PDF lighter so it fits an email limit or loads faster. This tool recompresses embedded images at a quality you choose and removes objects nothing references.",
+    "category": "pdf",
+    "icon": "📉",
+    "chip": "PDF",
+    "accept": "application/pdf,.pdf",
+    "multiple": false,
+    "dropText": "Drop a PDF here to compress it",
+    "acceptHint": "One PDF file. Best results on scanned or image-heavy documents.",
+    "steps": [
+      "Drop in the PDF you want to make smaller.",
+      "Pick a compression level. Balanced suits most documents; Strong is for meeting a hard size limit.",
+      "Click <strong>Compress PDF</strong> and wait for the status to finish — larger files take longer.",
+      "Compare the reported before-and-after sizes, then download the result."
+    ],
+    "privacyNote": "Compression decodes embedded images, re-encodes them at a lower quality, and rewrites the file. That is processor work on your own machine, and it needs no server to complete.",
+    "faq": [
+      { "q": "How much smaller will my file get?", "a": "It depends entirely on what is inside. A scanned document made of large photos might shrink by seventy percent or more. A text-only PDF with no images may barely change, because there is little to remove." },
+      { "q": "Does compression make text blurry?", "a": "Text that is stored as text is untouched and stays perfectly sharp. Only images are recompressed, and how much they soften depends on the level you select." },
+      { "q": "Is this the same as the tools that upload my file?", "a": "The compression method is comparable. The difference is that nothing leaves your device, so there is no copy on a server and no waiting for an upload to finish." },
+      { "q": "Can I compress a PDF that is already compressed?", "a": "Yes, and it may still shrink, but returns diminish. Repeated compression of the same images will visibly degrade them, so keep your original file." }
+    ]
+  },
+  {
+    "slug": "rotate-pdf",
+    "name": "Rotate PDF",
+    "h1": "Rotate PDF pages and save the result",
+    "title": "Rotate PDF Pages Online — Fix Orientation Privately | privafile",
+    "metaDescription": "Rotate some or all pages of a PDF in your browser and save the corrected file. No upload, no signup, no watermark.",
+    "shortDescription": "Turn pages 90 degrees at a time to fix sideways scans.",
+    "intro": "Fix a scan that came out sideways. Rotate every page at once, or select only the pages that are wrong. The corrected orientation is written into the saved file.",
+    "category": "pdf",
+    "icon": "🔄",
+    "chip": "PDF",
+    "accept": "application/pdf,.pdf",
+    "multiple": false,
+    "dropText": "Drop a PDF here to rotate it",
+    "acceptHint": "One PDF file. Choose which pages to turn next.",
+    "steps": [
+      "Drop in the PDF with pages facing the wrong way.",
+      "Choose the rotation direction, then decide whether it applies to all pages or only some.",
+      "For selected pages, enter them as 1,3,5 or a range like 2-4.",
+      "Click <strong>Rotate and save</strong>, then check a couple of pages in your reader."
+    ],
+    "privacyNote": "Rotating pages changes a single number per page — the display rotation — and saves the file. It is one of the lightest possible edits, and it runs locally.",
+    "faq": [
+      { "q": "Does rotating reduce quality?", "a": "No. The page is not re-rendered or re-scanned. Only the rotation attribute changes, so the underlying content is byte-for-byte what it was." },
+      { "q": "Why do my pages look sideways in one program but fine in another?", "a": "Readers disagree about whether to honour the rotation setting already in a file. This tool writes an unambiguous value, which most readers then respect consistently." },
+      { "q": "Can I rotate pages individually?", "a": "Yes. Apply one rotation to all pages, or list the specific pages you want turned and leave the rest as they are." },
+      { "q": "Will my annotations move?", "a": "Annotations are attached to page coordinates and are not repositioned by this tool. If a page carries comments, check them after rotating, or rotate a clean copy." }
+    ]
+  },
+  {
+    "slug": "remove-pdf-pages",
+    "name": "Remove PDF pages",
+    "h1": "Delete pages from a PDF",
+    "title": "Delete Pages From PDF Online — Remove Pages Privately | privafile",
+    "metaDescription": "Remove unwanted pages from a PDF in your browser and save a clean copy. No upload, no signup, no watermark.",
+    "shortDescription": "Cut unwanted pages out and save a clean copy of the document.",
+    "intro": "Take pages out of a PDF without touching the rest. Useful for dropping a blank scan, a cover sheet, or an appendix you do not want to send on.",
+    "category": "pdf",
+    "icon": "🗑️",
+    "chip": "PDF",
+    "accept": "application/pdf,.pdf",
+    "multiple": false,
+    "dropText": "Drop a PDF here to remove pages from it",
+    "acceptHint": "One PDF file. You will specify which pages to delete.",
+    "steps": [
+      "Drop in the PDF you want to trim.",
+      "Enter the pages to remove, as 2,5,9-11.",
+      "Click <strong>Remove pages</strong>. The tool reports how many pages remain.",
+      "Download the trimmed file and confirm the page count in your reader."
+    ],
+    "privacyNote": "Removing pages means writing a new document that references only the pages you kept. No server is involved, which matters when the pages you are cutting are the sensitive ones.",
+    "faq": [
+      { "q": "Does deleting a page really remove its content?", "a": "The page is left out of the new document, so it is gone from the copy you download. Keep your original file if you might need those pages later — the removal happens in the output, not in your source." },
+      { "q": "Can I remove a page range?", "a": "Yes. Ranges like 4-8 work alongside single numbers. Mix them in one list: 1, 4-8, 12." },
+      { "q": "What if I remove every page?", "a": "You would be left with an empty document, which many readers refuse to open. The tool warns you if your selection covers the whole file." },
+      { "q": "Are the remaining pages changed?", "a": "No. Kept pages are copied as they were, with their formatting, links and embedded fonts intact." }
+    ]
+  },
+  {
+    "slug": "pdf-to-jpg",
+    "name": "PDF to JPG",
+    "h1": "Convert PDF pages to JPG images",
+    "title": "PDF to JPG Converter — No Upload, Runs in Your Browser | privafile",
+    "metaDescription": "Turn PDF pages into JPG or PNG images at the resolution you choose, entirely in your browser. No upload, no signup, no watermark.",
+    "shortDescription": "Render each PDF page as a JPG or PNG image you can use anywhere.",
+    "intro": "Turn a PDF into pictures. Every page is rendered at the resolution you pick and saved as a JPG or PNG. Good for slides, forms you need to paste somewhere, or pages you want as images.",
+    "category": "pdf",
+    "icon": "🖼️",
+    "chip": "PDF",
+    "accept": "application/pdf,.pdf",
+    "multiple": false,
+    "dropText": "Drop a PDF here to convert to images",
+    "acceptHint": "One PDF file. Every page becomes an image.",
+    "steps": [
+      "Drop in the PDF you want to convert.",
+      "Choose an output format and a resolution. Higher resolution means larger, sharper images.",
+      "Click <strong>Convert to images</strong>. Pages are rendered one at a time.",
+      "Download the results. A single page arrives as an image; several pages arrive as a ZIP."
+    ],
+    "privacyNote": "Rendering a PDF page to an image is drawing work done by the browser's own rendering engine. Nothing is transmitted, which matters when the document is a contract, a statement, or an ID.",
+    "faq": [
+      { "q": "What resolution should I choose?", "a": "For on-screen use, 96 to 150 dots per inch is plenty. For printing, choose 300. Going higher mostly adds file size without visible benefit on screens." },
+      { "q": "Should I pick JPG or PNG?", "a": "JPG gives smaller files and suits photographs. PNG is lossless and better for text, line drawings and screenshots where sharp edges matter." },
+      { "q": "Why does it take a moment per page?", "a": "Each page is fully rendered before capture. A dense page with heavy graphics takes longer than a text page, and the whole thing runs on your processor." },
+      { "q": "Will links and selectable text survive?", "a": "No. An image is a picture of the page. Links and text selection are properties of the PDF, not of a bitmap, so use this tool when you specifically want a picture." }
+    ]
+  },
+  {
+    "slug": "jpg-to-pdf",
+    "name": "JPG to PDF",
+    "h1": "Convert JPG images to a PDF",
+    "title": "JPG to PDF Converter — Combine Images Into a PDF Privately | privafile",
+    "metaDescription": "Turn JPG, PNG or WebP images into a single PDF, in the order you choose, entirely in your browser. No upload, no signup, no watermark.",
+    "shortDescription": "Combine photos or scans into one clean PDF document.",
+    "intro": "Turn a set of images into one PDF. Ideal for sending photographed documents, receipts, or a set of scans as a single file someone can actually open.",
+    "category": "pdf",
+    "icon": "📑",
+    "chip": "PDF",
+    "accept": "image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp",
+    "multiple": true,
+    "dropText": "Drop your images here",
+    "acceptHint": "JPG, PNG or WebP. Add them in order, then rearrange.",
+    "steps": [
+      "Drop in your images. Each becomes one page.",
+      "Drag the list to set the page order.",
+      "Choose a page size and how the image should fit it.",
+      "Click <strong>Create PDF</strong> and download the result."
+    ],
+    "privacyNote": "This tool embeds your images into a PDF container. Since taking photos of documents is exactly when privacy matters most, the fact that nothing is uploaded is the point.",
+    "faq": [
+      { "q": "What page size should I use?", "a": "A4 suits most document scanning and is the common standard outside North America. Letter is the usual choice in the United States and Canada. Fit-to-image makes the page match the picture, which avoids margins." },
+      { "q": "How do I avoid ugly borders around my scans?", "a": "Choose the fit option rather than stretch, so proportions are preserved. If the image is the only thing on the page, fit-to-image removes the surrounding white space entirely." },
+      { "q": "Will the file be large?", "a": "It depends on your photos. Phone photos are large, and every bit of that detail is kept. If the result is too heavy to send, run it through the compress PDF tool afterwards, which also runs locally." },
+      { "q": "Can I add images after creating the PDF?", "a": "Not into the same file. Add them here and rebuild, or merge additional PDFs with the merge tool. Keeping the original images lets you rebuild at any time." }
+    ]
+  },
+  {
+    "slug": "compress-image",
+    "name": "Compress image",
+    "h1": "Compress images without uploading them",
+    "title": "Compress JPG & PNG Images Online — No Upload, Private | privafile",
+    "metaDescription": "Reduce image file size in your browser by adjusting quality and dimensions. No upload, no signup, no watermark. Your photos stay on your device.",
+    "shortDescription": "Shrink photos and screenshots by trading quality for size, your call.",
+    "intro": "Make images smaller for email, a website, or an upload limit. Move the quality slider to balance how the picture looks against how big it is, and see the size change before you download.",
+    "category": "image",
+    "icon": "🗜️",
+    "chip": "Popular",
+    "accept": "image/*",
+    "multiple": true,
+    "dropText": "Drop your images here",
+    "acceptHint": "JPG, PNG or WebP. Several files at once is fine.",
+    "steps": [
+      "Drop in one or more images.",
+      "Set a quality level and, if you want, a maximum width or height.",
+      "Watch the estimated size update as you move the controls.",
+      "Click <strong>Compress</strong>, then download. Several images are packaged as a ZIP."
+    ],
+    "privacyNote": "Compression re-encodes the image using the browser's own encoder. Your photos are usually the most personal files you handle, so keeping them on your device is a meaningful difference rather than a marketing line.",
+    "faq": [
+      { "q": "What quality setting should I start with?", "a": "Eighty percent is a good default. Most people cannot tell it apart from the original, and the file is often half the size. Drop to sixty for a noticeably lighter file when exact fidelity matters less." },
+      { "q": "Does compressing remove metadata like location?", "a": "Re-encoding an image through the browser generally leaves EXIF data such as GPS coordinates behind, which is often desirable when sharing. Do not rely on it as your only privacy step for highly sensitive photos." },
+      { "q": "Why did my PNG barely shrink?", "a": "PNG is lossless, so quality settings do not apply the way they do to JPG. Convert to JPG first for photographs, or resize the dimensions, which reduces any format." },
+      { "q": "Can I compress and resize at the same time?", "a": "Yes, and it is the most effective combination. Capping the width is frequently the single biggest saving, because a web image rarely needs to be four thousand pixels wide." }
+    ]
+  },
+  {
+    "slug": "resize-image",
+    "name": "Resize image",
+    "h1": "Resize an image to exact dimensions",
+    "title": "Resize Images Online — Exact Pixel Dimensions, No Upload | privafile",
+    "metaDescription": "Resize images to exact pixel dimensions or a percentage in your browser. Lock the aspect ratio or set width and height independently. No upload.",
+    "shortDescription": "Set exact pixel dimensions or scale by percentage.",
+    "intro": "Give an image the exact dimensions a form or a layout demands. Set width and height in pixels, or scale everything by a percentage. Lock the ratio to stop the picture stretching.",
+    "category": "image",
+    "icon": "📐",
+    "chip": "Image",
+    "accept": "image/*",
+    "multiple": true,
+    "dropText": "Drop your images here to resize",
+    "acceptHint": "JPG, PNG or WebP. See the original dimensions once loaded.",
+    "steps": [
+      "Drop in the images you want to resize.",
+      "Enter a width, a height, or a percentage. Keep the lock on to preserve proportions.",
+      "Choose whether to enlarge if the target is bigger than the original.",
+      "Click <strong>Resize</strong> and download the results."
+    ],
+    "privacyNote": "Resizing draws the image onto a canvas of the new size and re-encodes it. That is local drawing work, and it needs no connection to complete.",
+    "faq": [
+      { "q": "Should I keep the aspect ratio locked?", "a": "Almost always yes. Unlocking lets you set width and height independently, which stretches the picture. That is occasionally wanted, but usually it is an accident." },
+      { "q": "Does enlarging improve quality?", "a": "No. Making an image bigger cannot add detail that was not captured. Enlarged photos look softer. Resize down for quality; resize up only to satisfy a minimum-size requirement." },
+      { "q": "What happens to transparent areas in a PNG?", "a": "They are preserved if the output is PNG. Saving a transparent image as JPG fills transparency with a solid colour, usually white, so keep PNG when you need a transparent background." },
+      { "q": "Can I resize several images to the same size?", "a": "Yes. Drop them all in, set one target, and apply it. This is useful for making a uniform set of thumbnails or product images." }
+    ]
+  },
+  {
+    "slug": "png-to-jpg",
+    "name": "PNG to JPG",
+    "h1": "Convert PNG to JPG",
+    "title": "PNG to JPG Converter — Private, In-Browser, No Upload | privafile",
+    "metaDescription": "Convert PNG images to JPG in your browser with a quality setting you control. Choose the background colour for transparency. No upload, no signup.",
+    "shortDescription": "Convert PNG files to lighter JPGs, with a colour for transparency.",
+    "intro": "Turn PNG files into JPGs, which are usually much smaller for photographs. Because JPG cannot store transparency, you choose the colour that fills any transparent areas.",
+    "category": "image",
+    "icon": "🔁",
+    "chip": "Image",
+    "accept": "image/png,.png",
+    "multiple": true,
+    "dropText": "Drop PNG files here",
+    "acceptHint": "PNG files. Choose a background colour for transparency.",
+    "steps": [
+      "Drop in your PNG files.",
+      "Pick the colour to fill transparent areas. White is the safe default.",
+      "Set the JPG quality. Higher keeps more detail and makes a bigger file.",
+      "Click <strong>Convert to JPG</strong> and download."
+    ],
+    "privacyNote": "Format conversion decodes one image format and encodes another, using the browser's codecs. It is a self-contained transformation with no need to touch the network.",
+    "faq": [
+      { "q": "Why can't JPG keep my transparent background?", "a": "Transparency is a feature of the PNG format. JPG stores a flat grid of colours with no way to mark a pixel as see-through, so a solid colour has to take its place." },
+      { "q": "Will converting make my file smaller?", "a": "For photographs, usually dramatically. For flat graphics, logos and screenshots with few colours, JPG can actually be larger and look worse, so PNG is often the better format for those." },
+      { "q": "What quality should I use?", "a": "Ninety is a good balance for images you will look at closely. Lower values shrink the file further at the cost of visible artefacts around sharp edges and text." },
+      { "q": "Can I convert several PNGs at once?", "a": "Yes. Add as many as you like, apply the same settings, and they come back as a single ZIP download." }
+    ]
+  },
+  {
+    "slug": "ocr-image",
+    "name": "Image to text (OCR)",
+    "h1": "Extract text from an image, on your device",
+    "title": "Image to Text OCR — Read Text From Scans Privately, No Upload | privafile",
+    "metaDescription": "Extract text from images and scans using OCR that runs entirely in your browser. No upload, no signup. Your documents never leave your device.",
+    "shortDescription": "Read the text out of a scan or screenshot and copy it as plain text.",
+    "intro": "Pull text out of a picture. Photograph a page, screenshot a form, scan a receipt, and get selectable text you can paste anywhere. The recognition model runs on your own machine.",
+    "category": "image",
+    "icon": "🔤",
+    "chip": "OCR",
+    "accept": "image/*",
+    "multiple": false,
+    "dropText": "Drop an image here to read its text",
+    "acceptHint": "One image. Clear, straight, well-lit pictures read best.",
+    "steps": [
+      "Drop in the image containing the text you want.",
+      "Choose the language the text is written in.",
+      "Click <strong>Extract text</strong>. The recognition model loads on first use, which takes a moment.",
+      "Copy the text, or download it as a plain text file."
+    ],
+    "privacyNote": "Ordinary OCR means sending your document to somebody's server, and people run OCR on passports, contracts and medical letters. Here the recognition model is downloaded once and then runs locally, so the image itself is never transmitted.",
+    "faq": [
+      { "q": "Why is the first run slow?", "a": "The recognition model is a few megabytes of data that your browser downloads the first time. After that it is cached, and later runs start quickly." },
+      { "q": "How accurate is it?", "a": "On clean, straight, high-contrast text it is usually very accurate. Handwriting, heavy skew, low light and decorative fonts reduce accuracy sharply. Expect to proofread anything important." },
+      { "q": "Which languages are supported?", "a": "English is included by default. Other languages load on demand, and each adds to the download because each needs its own model data." },
+      { "q": "Does it keep the layout?", "a": "It returns text in reading order with line breaks. Complex multi-column layouts may come out jumbled, since the tool aims for correct characters rather than exact positioning." },
+      { "q": "Can it read a PDF directly?", "a": "Convert the PDF to images with the PDF to JPG tool first, then run those images through this one. Both steps happen locally." }
+    ]
+  }
+]

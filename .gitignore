@@ -1,0 +1,21 @@
+# privafile.net — build output
+dist/
+node_modules/
+
+# Secrets — NEVER commit
+.env
+.env.*
+*.token
+token.txt
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+desktop.ini
+*.ini

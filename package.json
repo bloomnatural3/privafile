@@ -1,0 +1,11 @@
+{
+  "name": "privafile",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Privacy-first in-browser file tools. Files never leave your device.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --serve"
+  }
+}
