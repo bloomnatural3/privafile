@@ -306,8 +306,10 @@ function privacyPage() {
     <li><strong>External requests</strong> — requests leaving privafile.net. We intend this to be zero, so nothing about you reaches a third party.</li>
   </ul>
 
-  <h2 id="no-tracking">No tracking, no accounts, no analytics scripts</h2>
-  <p>We do not run third-party analytics on tool pages. There is no login, no cookie wall, and no upload storage — because there is nothing to store. If we ever add a measurement tool, it will be mentioned here and on the page where it runs, and it will never receive file content.</p>
+  <h2 id="no-tracking">No accounts, no cookies, no file storage</h2>
+  <p>There is no login, no cookie wall, and no upload storage — because there is nothing to store. We do not sell, share, or retain your files: we never receive them in the first place.</p>
+  <p>Our intent is that tool pages make <strong>no third-party requests at all</strong>. The live counter above measures this on the page you are currently viewing, so you can check it rather than trust it. If a number there is ever non-zero, something has been added to the site that we did not intend, and the counter is how you would catch it.</p>
+  <p>We are static hosting on a CDN, which means our host necessarily sees ordinary web request metadata — your IP address and the page you asked for. That is true of any website. What our host does not see, and cannot see, is the contents of your files.</p>
 
   <h2>Verify it independently — three ways</h2>
   <ol class="steps">

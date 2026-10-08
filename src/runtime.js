@@ -21,6 +21,11 @@ const NetGuard = (() => {
   const origFetch = window.fetch?.bind(window);
 
   // Heuristic: does this request body plausibly contain file bytes?
+  //
+  // Deliberately conservative. We flag only things that genuinely look like a
+  // file payload, because a false positive (e.g. Cloudflare's own RUM beacon)
+  // would undermine the credibility of the very claim this guard exists to
+  // support. Sending file bytes through any normal web API is what we block.
   function looksLikeFileData(body) {
     if (!body) return false;
     if (body instanceof File || body instanceof Blob) return true;
@@ -28,8 +33,9 @@ const NetGuard = (() => {
       for (const v of body.values()) if (v instanceof File || v instanceof Blob) return true;
       return false;
     }
-    if (body instanceof ArrayBuffer || ArrayBuffer.isView(body)) return true;
-    if (typeof body === 'string' && body.length > 200000) return true; // huge string = suspicious
+    // A raw buffer or typed array as a request body is a strong signal, unless
+    // it is tiny (telemetry beacons are small).
+    if (body instanceof ArrayBuffer || ArrayBuffer.isView(body)) return body.byteLength > 512;
     return false;
   }
 
