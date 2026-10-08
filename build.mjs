@@ -418,13 +418,35 @@ if (existsSync(join(SRC, 'tools'))) {
 }
 if (existsSync(join(SRC, 'vendor'))) cpSync(join(SRC, 'vendor'), join(OUT, 'src/vendor'), { recursive: true });
 
+// Security headers, scoped rather than blanket.
+//
+// COEP/COOP are required for SharedArrayBuffer, which the WASM tools want.
+// They serve no purpose on plain XML or text, and a sitemap carrying
+// `Cross-Origin-Embedder-Policy: require-corp` is at best meaningless and at
+// worst interferes with external fetchers. So: apply them to the app, leave
+// the machine-readable files alone.
 write('_headers', `/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=()
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cross-Origin-Resource-Policy: cross-origin
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+
+/favicon.svg
+  Cross-Origin-Resource-Policy: cross-origin
+
+/src/*
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Embedder-Policy: require-corp
+
+/*
+  Cross-Origin-Opener-Policy: same-origin
 `);
 
-console.log(`✔ built ${tools.length} tools + ${3} static pages → dist/`);
+console.log(`✔ built ${tools.length} tools + 3 static pages → dist/`);
 console.log(`  ${tools.map(t => t.slug).join(', ')}`);

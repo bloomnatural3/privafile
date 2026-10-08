@@ -861,5 +861,318 @@
         "a": "You can, though a plain PNG linked in your HTML head is generally better for modern browsers. An ICO is most useful for Windows applications and file-type associations."
       }
     ]
+  },
+  {
+    "slug": "reorder-pdf-pages",
+    "name": "Reorder PDF pages",
+    "h1": "Rearrange the pages of a PDF",
+    "title": "Reorder PDF Pages Online — No Upload, No Watermark | privafile",
+    "metaDescription": "Change the order of pages in a PDF in your browser. Duplicate or drop pages by rewriting the sequence. No upload, no signup, no watermark.",
+    "shortDescription": "Put the pages into a different order, or duplicate and drop pages.",
+    "intro": "Give a PDF a new page order. Type the sequence you want using the original page numbers, and the document is rewritten to match. Because you are describing the output directly, you can also duplicate a page by naming it twice, or leave one out entirely.",
+    "category": "pdf",
+    "icon": "🔀",
+    "chip": "PDF",
+    "accept": "application/pdf,.pdf",
+    "multiple": false,
+    "dropText": "Drop a PDF here to reorder it",
+    "acceptHint": "One PDF. You will type the new page order next.",
+    "steps": [
+      "Drop in the PDF whose pages you want to rearrange.",
+      "Type the new order as page numbers — for example <code>3,1,2,4-6</code>. The first number becomes the first page of the result.",
+      "Name a page more than once to duplicate it, or omit pages you no longer want.",
+      "Click <strong>Reorder pages</strong> and the rewritten file downloads."
+    ],
+    "privacyNote": "Reordering is nothing but rewriting the page tree: the pages move, the bytes are copied as they are. That work has no reason to involve a network connection, so it never uses one.",
+    "faq": [
+      {
+        "q": "How do I duplicate a page?",
+        "a": "List its number twice. Writing 3,3,4 gives you page three twice, then page four. There is no separate duplicate button because the order string already expresses it."
+      },
+      {
+        "q": "How do I delete pages with this tool?",
+        "a": "Simply leave them out of the sequence. If a ten-page document gets the order 1-5,7-10, then page six is gone from the result. For a dedicated tool, use Remove PDF pages."
+      },
+      {
+        "q": "Does reordering reduce quality?",
+        "a": "No. Pages are moved intact rather than re-rendered, so text stays selectable and images keep their original resolution."
+      },
+      {
+        "q": "Can I reverse the whole document?",
+        "a": "Yes. Enter the range backwards — for a ten-page file, type 10-1. The tool reads a descending range as a reverse order rather than re-sorting it."
+      },
+      {
+        "q": "What happens to bookmarks?",
+        "a": "Page content is always preserved. A bookmark tree that pointed at specific pages is not carried across, because after reordering its targets are ambiguous."
+      }
+    ]
+  },
+  {
+    "slug": "extract-pdf-pages",
+    "name": "Extract PDF pages",
+    "h1": "Pull specific pages out of a PDF",
+    "title": "Extract Pages from PDF Online — No Upload, Plus Ranges | privafile",
+    "metaDescription": "Save selected pages from a PDF as a new document, in your browser. Ranges supported. No upload, no signup, no watermark.",
+    "shortDescription": "Save just the pages you need into a new, smaller PDF.",
+    "intro": "Produce a new document containing only the pages you name. Useful for pulling a single chapter out of a long report, or the signed page out of a contract.",
+    "category": "pdf",
+    "icon": "📑",
+    "chip": "PDF",
+    "accept": "application/pdf,.pdf",
+    "multiple": false,
+    "dropText": "Drop a PDF here to extract from",
+    "acceptHint": "One PDF. You will choose pages next.",
+    "steps": [
+      "Drop in the PDF you want to take pages from.",
+      "Type the pages to keep — a single page like <code>4</code>, a range like <code>1-3</code>, or a mix like <code>1-3,7,12</code>.",
+      "Click <strong>Extract pages</strong>. Only those pages are copied into the new file.",
+      "The result downloads; the original is untouched."
+    ],
+    "privacyNote": "Extraction copies the pages you asked for into a fresh document and discards the rest. It is a local file operation with no server step, so nothing is transmitted.",
+    "faq": [
+      {
+        "q": "Is the original file changed?",
+        "a": "No. A new file is created and downloaded. The document you dropped in is read but never modified."
+      },
+      {
+        "q": "Do the pages stay in their original order?",
+        "a": "Yes. If you type 7,2,5 the output is rewritten in document order (2,5,7) rather than the order you typed, because extraction is about selecting pages, not sequencing them."
+      },
+      {
+        "q": "How is this different from Split PDF?",
+        "a": "Split produces one file per page or per range. Extract produces a single file containing everything you selected, which is usually what you want when pulling a section out."
+      },
+      {
+        "q": "What if I need most of the document?",
+        "a": "If you are keeping more than half, Remove PDF pages is often easier — delete the few you do not want instead of listing the many you do."
+      },
+      {
+        "q": "Will the extracted file be smaller?",
+        "a": "Usually, yes — but only by the pages you left out. Pages are copied intact, so the remaining pages cost exactly what they cost before."
+      }
+    ]
+  },
+  {
+    "slug": "pdf-page-numbers",
+    "name": "Add page numbers to PDF",
+    "h1": "Put page numbers on a PDF",
+    "title": "Add Page Numbers to PDF Online — No Upload | privafile",
+    "metaDescription": "Number the pages of a PDF in your browser. Choose position, format and starting number. No upload, no signup, no watermark.",
+    "shortDescription": "Stamp real, selectable page numbers onto every page.",
+    "intro": "Add page numbers to a PDF with control over where they sit, how they are worded, and which number the count starts from. The numbers are added as real text, so they are searchable and selectable afterwards.",
+    "category": "pdf",
+    "icon": "🔢",
+    "chip": "PDF",
+    "accept": "application/pdf,.pdf",
+    "multiple": false,
+    "dropText": "Drop a PDF here to number",
+    "acceptHint": "One PDF. You will choose position and format next.",
+    "steps": [
+      "Drop in the PDF you want numbered.",
+      "Pick a position, a format such as <code>1 of 24</code>, and the number to start from.",
+      "Set <strong>Skip first N pages</strong> if the opening page is a cover that should not be numbered.",
+      "Click <strong>Add page numbers</strong>. The numbered copy downloads."
+    ],
+    "privacyNote": "The numbers are drawn onto each page as text and the document is re-saved — a local operation with no upload step. The document is never transmitted, so a confidential report stays confidential.",
+    "faq": [
+      {
+        "q": "Are the numbers real text or an image?",
+        "a": "Real text, drawn with an embedded font. You can select them, copy them, and search for them afterwards. Clicking a number in a PDF reader will not jump anywhere, though — they are page furniture, not links."
+      },
+      {
+        "q": "Can I skip the cover page?",
+        "a": "Yes. Set Skip first N pages to 1 and the first page is left alone. Numbering still starts from the value you chose, so the second page can be numbered 1 or 2 as you prefer."
+      },
+      {
+        "q": "Can I continue numbering from a previous document?",
+        "a": "Set the starting number to whatever the next value should be. For a second volume that follows a 40-page first volume, start at 41."
+      },
+      {
+        "q": "Will this work on a scanned PDF?",
+        "a": "Yes. The numbers are drawn as a new layer on top of the existing page image, so it does not matter whether the original page contains text."
+      },
+      {
+        "q": "Do the numbers show in the sidebar thumbnails?",
+        "a": "They are part of the page content, so yes — the thumbnail for each page includes its number."
+      }
+    ]
+  },
+  {
+    "slug": "pdf-metadata",
+    "name": "PDF metadata viewer",
+    "h1": "See what a PDF says about its author",
+    "title": "PDF Metadata Viewer — See Author, Software and Dates | privafile",
+    "metaDescription": "Read the hidden metadata inside a PDF: author, title, software, dates. Entirely in your browser. No upload, no signup.",
+    "shortDescription": "Reveal the author, software and dates recorded inside a PDF.",
+    "intro": "PDFs carry fields most people never see: who created the file, which program produced it, and when. This tool shows you what is recorded in a document before you share it.",
+    "category": "pdf",
+    "icon": "🔎",
+    "chip": "Inspect",
+    "accept": "application/pdf,.pdf",
+    "multiple": false,
+    "dropText": "Drop a PDF here to inspect",
+    "acceptHint": "One PDF. Nothing is changed — this only reads.",
+    "steps": [
+      "Drop in the PDF you want to examine.",
+      "Click <strong>Read metadata</strong>.",
+      "Review the fields. Anything empty is simply not recorded in that file."
+    ],
+    "privacyNote": "This tool only reads. It never writes to your file and never uploads it — which matters here, because the metadata you are inspecting is exactly the information you would not want to hand to a stranger.",
+    "faq": [
+      {
+        "q": "Why is the author field empty?",
+        "a": "Most PDFs simply have no author recorded. Scanners usually produce files with no metadata at all, and many export tools leave the fields blank by default."
+      },
+      {
+        "q": "What does the Producer field tell me?",
+        "a": "It names the software that made the PDF, and often the version. Seeing Ghostscript or a word processor name here is normal; it tells you how the file was generated rather than anything about its contents."
+      },
+      {
+        "q": "Can this remove the metadata?",
+        "a": "This particular tool only reads. Use Strip PDF metadata to produce a cleaned copy."
+      },
+      {
+        "q": "Is the metadata visible in a normal reader?",
+        "a": "Usually it is hidden behind a document-properties dialogue most people never open. It is present in the file regardless, which is why a file can reveal more than it appears to."
+      },
+      {
+        "q": "Are the dates reliable?",
+        "a": "Treat them as hints. The creation date is set by the software that wrote the file and can be wrong, especially after a file is converted or re-saved."
+      }
+    ]
+  },
+  {
+    "slug": "exif-viewer",
+    "name": "EXIF viewer",
+    "h1": "See the hidden data in your photos",
+    "title": "EXIF Viewer — Camera, Settings and GPS Data | privafile",
+    "metaDescription": "Read the EXIF data inside a photo: camera, lens, exposure settings, date and GPS coordinates. Runs in your browser, no upload.",
+    "shortDescription": "Read a photo’s camera settings, date and location data.",
+    "intro": "Photographs record far more than the picture. This tool reads the EXIF block inside a JPEG and shows you the camera, the lens, the exposure settings, the timestamps, and — if it is present — the GPS coordinates where the photo was taken.",
+    "category": "image",
+    "icon": "📷",
+    "chip": "Inspect",
+    "accept": "image/jpeg,image/jpg,.jpg,.jpeg",
+    "multiple": false,
+    "dropText": "Drop a photo here to inspect it",
+    "acceptHint": "A JPEG photo. This is a read-only check; nothing is modified.",
+    "steps": [
+      "Drop in a JPEG photo, straight from a camera or phone.",
+      "Click <strong>Read EXIF data</strong>.",
+      "Review the fields. If GPS coordinates are present you will get a map link so you can see exactly where the photo places you."
+    ],
+    "privacyNote": "The file is read in memory and the values are rendered on this page. Nothing is uploaded — which matters most with exactly this tool, because photos can contain your home address.",
+    "faq": [
+      {
+        "q": "Why does my photo show no EXIF data?",
+        "a": "Likely causes: it is a PNG or a screenshot (neither has an EXIF block), or it was re-saved by a platform like a social network or messaging app, which almost always strips the metadata. Photos transferred directly from a camera usually still have it."
+      },
+      {
+        "q": "Is GPS really in my photos?",
+        "a": "Often, yes — phones record location by default when location services are on. It is one of the more surprising pieces of metadata, because the photo itself gives no visual hint that it carries your coordinates."
+      },
+      {
+        "q": "Can I rely on the GPS location?",
+        "a": "It is as accurate as the fix the phone had when the shutter fired. Indoors or in a city centre that can be off by tens of metres, so treat it as a neighbourhood, not an address."
+      },
+      {
+        "q": "What does the Orientation field mean?",
+        "a": "It records how the camera was held so software can rotate the image correctly. A photo that appears correctly in one app and sideways in another is usually down to this field being respected or ignored."
+      },
+      {
+        "q": "How do I remove this data before sharing?",
+        "a": "Use the Strip EXIF metadata tool. It re-encodes the image and drops everything, including GPS."
+      }
+    ]
+  },
+  {
+    "slug": "strip-exif",
+    "name": "Strip EXIF metadata",
+    "h1": "Remove the metadata from your photos",
+    "title": "Strip EXIF & GPS from Photos Online — No Upload | privafile",
+    "metaDescription": "Remove EXIF metadata, including GPS location, from your photos in the browser. No upload, no signup, no watermark. Full resolution kept.",
+    "shortDescription": "Delete camera data and GPS location before you share a photo.",
+    "intro": "Before you send a photo, remove what is attached to it. This tool drops the entire metadata block — camera, lens, timestamps, software, thumbnail and GPS coordinates — while leaving the picture itself at full resolution.",
+    "category": "image",
+    "icon": "🧼",
+    "chip": "Privacy",
+    "accept": "image/jpeg,image/png,.jpg,.jpeg,.png",
+    "multiple": true,
+    "dropText": "Drop photos here to clean them",
+    "acceptHint": "JPEG or PNG. Drop as many as you like — they come back as a ZIP.",
+    "steps": [
+      "Drop in one photo or several at once.",
+      "Choose a JPEG quality if you are cleaning JPEGs. 92% is a good default.",
+      "Click <strong>Strip metadata</strong>. Every metadata field is removed.",
+      "Download the cleaned image, or a ZIP if you cleaned several."
+    ],
+    "privacyNote": "The image is re-encoded from its pixels, which is why the metadata disappears completely — nothing is selectively deleted for something to be missed. That re-encoding happens in your browser, so the photo never leaves your device even though its location data is precisely what someone would want.",
+    "faq": [
+      {
+        "q": "Does this remove GPS location?",
+        "a": "Yes — GPS is part of the metadata block, so it goes with everything else. The tool counts how many of your images carried coordinates so you can see what you were about to share."
+      },
+      {
+        "q": "Does it reduce image quality?",
+        "a": "For JPEG input, slightly, because the image is re-compressed. At 92% the difference is normally invisible. Choose PNG output for a lossless result, at the cost of a larger file."
+      },
+      {
+        "q": "Why is the file a different size afterwards?",
+        "a": "Re-encoding produces different compressed bytes, so the size shifts either way regardless of the metadata removed. With PNG output the change comes purely from the metadata being gone."
+      },
+      {
+        "q": "Are the pixels changed at all?",
+        "a": "The pixel dimensions and visible content are identical. What changes is the encoding: the image is decoded and re-encoded rather than copied byte for byte."
+      },
+      {
+        "q": "Is this different from what social media does?",
+        "a": "Most platforms strip metadata when you upload. The difference is that you are choosing to do it, before the file goes anywhere, rather than relying on a third party to do it after receiving everything."
+      }
+    ]
+  },
+  {
+    "slug": "watermark-image",
+    "name": "Watermark image",
+    "h1": "Put a watermark on your images",
+    "title": "Add a Watermark to Images Online — No Upload | privafile",
+    "metaDescription": "Add a text watermark to your photos in the browser. Choose position, size, opacity and colour. No upload, no signup, no watermark added by us.",
+    "shortDescription": "Add your own text watermark, placed exactly where you want it.",
+    "intro": "Put your name or a copyright notice onto an image. You choose the wording, the position, the size and how strongly it shows. Batch several images at once and they come back together.",
+    "category": "image",
+    "icon": "💧",
+    "chip": "Image",
+    "accept": "image/jpeg,image/png,.jpg,.jpeg,.png",
+    "multiple": true,
+    "dropText": "Drop images here to watermark",
+    "acceptHint": "JPEG or PNG. Several at once is fine.",
+    "steps": [
+      "Drop in one or more images.",
+      "Type the watermark text, then pick a position — including a tiled option that repeats it across the whole image.",
+      "Adjust size, opacity and colour until it reads the way you want.",
+      "Click <strong>Watermark</strong> and download the result."
+    ],
+    "privacyNote": "The watermark is drawn into the image data in your browser and the file is re-encoded locally. Your unpublished work is never sent anywhere, which is the whole point of watermarking it in the first place.",
+    "faq": [
+      {
+        "q": "Should I use the tiled option?",
+        "a": "Tiling repeats the text diagonally across the image, which makes it much harder to crop out. It is the better choice for images you expect to circulate. A single corner mark is easier to read and easier to remove."
+      },
+      {
+        "q": "Can a watermark be removed?",
+        "a": "Yes, by anyone determined enough. Cropping, painting over, or content-aware fill can all defeat it. A watermark discourages casual reuse and asserts authorship; it is not a technical protection."
+      },
+      {
+        "q": "Why the shadow behind the text?",
+        "a": "Light text on a light background would vanish without it. A soft dark drop shadow keeps the mark legible wherever it lands, which matters when the position is fixed but the image content is not."
+      },
+      {
+        "q": "Which colour should I choose?",
+        "a": "White with a shadow is the safest default, because it survives both dark and light areas. Black suits images that are uniformly light, such as documents."
+      },
+      {
+        "q": "Can I watermark a PDF?",
+        "a": "Not with this tool. This one is for images; a PDF watermark is a different piece of work because it has to be drawn onto each page."
+      }
+    ]
   }
 ]
