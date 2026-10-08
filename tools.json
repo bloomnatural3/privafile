@@ -22,11 +22,26 @@
     ],
     "privacyNote": "Merging is pure file rewriting: read bytes, concatenate page trees, write bytes. There is no step in that sequence that needs a network connection, so this tool does it without one.",
     "faq": [
-      { "q": "Is there a limit on how many PDFs I can merge?", "a": "No limit is imposed by us. The practical ceiling is your device's available memory, which is generous on desktop and more modest on older phones. Fifty ordinary documents is not a problem on a laptop." },
-      { "q": "Will merging change the quality of my pages?", "a": "No. Pages are copied as they are, not re-rendered or re-compressed. Text stays selectable and images keep their original resolution." },
-      { "q": "What happens to bookmarks and form fields?", "a": "Page content is always preserved. Interactive elements such as form fields or internal bookmark trees from source files are not carried across, because combining them from several documents creates ambiguous results." },
-      { "q": "Do I need to install anything?", "a": "No. The tool runs on code your browser downloads with the page. It works offline once the page has loaded." },
-      { "q": "Can I merge password-protected PDFs?", "a": "A file that asks for a password cannot be read without it, so it cannot be merged. Remove the password in a reader that supports it first, then merge." }
+      {
+        "q": "Is there a limit on how many PDFs I can merge?",
+        "a": "No limit is imposed by us. The practical ceiling is your device's available memory, which is generous on desktop and more modest on older phones. Fifty ordinary documents is not a problem on a laptop."
+      },
+      {
+        "q": "Will merging change the quality of my pages?",
+        "a": "No. Pages are copied as they are, not re-rendered or re-compressed. Text stays selectable and images keep their original resolution."
+      },
+      {
+        "q": "What happens to bookmarks and form fields?",
+        "a": "Page content is always preserved. Interactive elements such as form fields or internal bookmark trees from source files are not carried across, because combining them from several documents creates ambiguous results."
+      },
+      {
+        "q": "Do I need to install anything?",
+        "a": "No. The tool runs on code your browser downloads with the page. It works offline once the page has loaded."
+      },
+      {
+        "q": "Can I merge password-protected PDFs?",
+        "a": "A file that asks for a password cannot be read without it, so it cannot be merged. Remove the password in a reader that supports it first, then merge."
+      }
     ]
   },
   {
@@ -53,10 +68,22 @@
     ],
     "privacyNote": "Splitting means selecting page ranges and writing each selection to a new document. It is a local reconstruction of page trees, and this tool performs it with no network request at all.",
     "faq": [
-      { "q": "How do I format ranges?", "a": "Use commas between groups and hyphens inside a group. 1-3, 7, 10-12 produces three files: pages one to three, page seven alone, and pages ten to twelve." },
-      { "q": "Why did I get a ZIP instead of separate files?", "a": "Browsers block a page from triggering many downloads at once, as a security measure. Packaging the results into one ZIP is the reliable way to hand you several files in a single action." },
-      { "q": "Are the pages re-compressed?", "a": "No. Original page content is copied intact. File sizes of the parts approximately sum to the original, minus a small amount of shared overhead." },
-      { "q": "Can I split only the pages that have content?", "a": "The tool splits by page number, since it does not attempt to guess which pages matter. Use the range syntax to choose exactly what you keep." }
+      {
+        "q": "How do I format ranges?",
+        "a": "Use commas between groups and hyphens inside a group. 1-3, 7, 10-12 produces three files: pages one to three, page seven alone, and pages ten to twelve."
+      },
+      {
+        "q": "Why did I get a ZIP instead of separate files?",
+        "a": "Browsers block a page from triggering many downloads at once, as a security measure. Packaging the results into one ZIP is the reliable way to hand you several files in a single action."
+      },
+      {
+        "q": "Are the pages re-compressed?",
+        "a": "No. Original page content is copied intact. File sizes of the parts approximately sum to the original, minus a small amount of shared overhead."
+      },
+      {
+        "q": "Can I split only the pages that have content?",
+        "a": "The tool splits by page number, since it does not attempt to guess which pages matter. Use the range syntax to choose exactly what you keep."
+      }
     ]
   },
   {
@@ -82,10 +109,22 @@
     ],
     "privacyNote": "Compression decodes embedded images, re-encodes them at a lower quality, and rewrites the file. That is processor work on your own machine, and it needs no server to complete.",
     "faq": [
-      { "q": "How much smaller will my file get?", "a": "It depends entirely on what is inside. A scanned document made of large photos might shrink by seventy percent or more. A text-only PDF with no images may barely change, because there is little to remove." },
-      { "q": "Does compression make text blurry?", "a": "Text that is stored as text is untouched and stays perfectly sharp. Only images are recompressed, and how much they soften depends on the level you select." },
-      { "q": "Is this the same as the tools that upload my file?", "a": "The compression method is comparable. The difference is that nothing leaves your device, so there is no copy on a server and no waiting for an upload to finish." },
-      { "q": "Can I compress a PDF that is already compressed?", "a": "Yes, and it may still shrink, but returns diminish. Repeated compression of the same images will visibly degrade them, so keep your original file." }
+      {
+        "q": "How much smaller will my file get?",
+        "a": "It depends entirely on what is inside. A scanned document made of large photos might shrink by seventy percent or more. A text-only PDF with no images may barely change, because there is little to remove."
+      },
+      {
+        "q": "Does compression make text blurry?",
+        "a": "Text that is stored as text is untouched and stays perfectly sharp. Only images are recompressed, and how much they soften depends on the level you select."
+      },
+      {
+        "q": "Is this the same as the tools that upload my file?",
+        "a": "The compression method is comparable. The difference is that nothing leaves your device, so there is no copy on a server and no waiting for an upload to finish."
+      },
+      {
+        "q": "Can I compress a PDF that is already compressed?",
+        "a": "Yes, and it may still shrink, but returns diminish. Repeated compression of the same images will visibly degrade them, so keep your original file."
+      }
     ]
   },
   {
@@ -111,10 +150,22 @@
     ],
     "privacyNote": "Rotating pages changes a single number per page — the display rotation — and saves the file. It is one of the lightest possible edits, and it runs locally.",
     "faq": [
-      { "q": "Does rotating reduce quality?", "a": "No. The page is not re-rendered or re-scanned. Only the rotation attribute changes, so the underlying content is byte-for-byte what it was." },
-      { "q": "Why do my pages look sideways in one program but fine in another?", "a": "Readers disagree about whether to honour the rotation setting already in a file. This tool writes an unambiguous value, which most readers then respect consistently." },
-      { "q": "Can I rotate pages individually?", "a": "Yes. Apply one rotation to all pages, or list the specific pages you want turned and leave the rest as they are." },
-      { "q": "Will my annotations move?", "a": "Annotations are attached to page coordinates and are not repositioned by this tool. If a page carries comments, check them after rotating, or rotate a clean copy." }
+      {
+        "q": "Does rotating reduce quality?",
+        "a": "No. The page is not re-rendered or re-scanned. Only the rotation attribute changes, so the underlying content is byte-for-byte what it was."
+      },
+      {
+        "q": "Why do my pages look sideways in one program but fine in another?",
+        "a": "Readers disagree about whether to honour the rotation setting already in a file. This tool writes an unambiguous value, which most readers then respect consistently."
+      },
+      {
+        "q": "Can I rotate pages individually?",
+        "a": "Yes. Apply one rotation to all pages, or list the specific pages you want turned and leave the rest as they are."
+      },
+      {
+        "q": "Will my annotations move?",
+        "a": "Annotations are attached to page coordinates and are not repositioned by this tool. If a page carries comments, check them after rotating, or rotate a clean copy."
+      }
     ]
   },
   {
@@ -140,10 +191,22 @@
     ],
     "privacyNote": "Removing pages means writing a new document that references only the pages you kept. No server is involved, which matters when the pages you are cutting are the sensitive ones.",
     "faq": [
-      { "q": "Does deleting a page really remove its content?", "a": "The page is left out of the new document, so it is gone from the copy you download. Keep your original file if you might need those pages later — the removal happens in the output, not in your source." },
-      { "q": "Can I remove a page range?", "a": "Yes. Ranges like 4-8 work alongside single numbers. Mix them in one list: 1, 4-8, 12." },
-      { "q": "What if I remove every page?", "a": "You would be left with an empty document, which many readers refuse to open. The tool warns you if your selection covers the whole file." },
-      { "q": "Are the remaining pages changed?", "a": "No. Kept pages are copied as they were, with their formatting, links and embedded fonts intact." }
+      {
+        "q": "Does deleting a page really remove its content?",
+        "a": "The page is left out of the new document, so it is gone from the copy you download. Keep your original file if you might need those pages later — the removal happens in the output, not in your source."
+      },
+      {
+        "q": "Can I remove a page range?",
+        "a": "Yes. Ranges like 4-8 work alongside single numbers. Mix them in one list: 1, 4-8, 12."
+      },
+      {
+        "q": "What if I remove every page?",
+        "a": "You would be left with an empty document, which many readers refuse to open. The tool warns you if your selection covers the whole file."
+      },
+      {
+        "q": "Are the remaining pages changed?",
+        "a": "No. Kept pages are copied as they were, with their formatting, links and embedded fonts intact."
+      }
     ]
   },
   {
@@ -169,10 +232,22 @@
     ],
     "privacyNote": "Rendering a PDF page to an image is drawing work done by the browser's own rendering engine. Nothing is transmitted, which matters when the document is a contract, a statement, or an ID.",
     "faq": [
-      { "q": "What resolution should I choose?", "a": "For on-screen use, 96 to 150 dots per inch is plenty. For printing, choose 300. Going higher mostly adds file size without visible benefit on screens." },
-      { "q": "Should I pick JPG or PNG?", "a": "JPG gives smaller files and suits photographs. PNG is lossless and better for text, line drawings and screenshots where sharp edges matter." },
-      { "q": "Why does it take a moment per page?", "a": "Each page is fully rendered before capture. A dense page with heavy graphics takes longer than a text page, and the whole thing runs on your processor." },
-      { "q": "Will links and selectable text survive?", "a": "No. An image is a picture of the page. Links and text selection are properties of the PDF, not of a bitmap, so use this tool when you specifically want a picture." }
+      {
+        "q": "What resolution should I choose?",
+        "a": "For on-screen use, 96 to 150 dots per inch is plenty. For printing, choose 300. Going higher mostly adds file size without visible benefit on screens."
+      },
+      {
+        "q": "Should I pick JPG or PNG?",
+        "a": "JPG gives smaller files and suits photographs. PNG is lossless and better for text, line drawings and screenshots where sharp edges matter."
+      },
+      {
+        "q": "Why does it take a moment per page?",
+        "a": "Each page is fully rendered before capture. A dense page with heavy graphics takes longer than a text page, and the whole thing runs on your processor."
+      },
+      {
+        "q": "Will links and selectable text survive?",
+        "a": "No. An image is a picture of the page. Links and text selection are properties of the PDF, not of a bitmap, so use this tool when you specifically want a picture."
+      }
     ]
   },
   {
@@ -198,10 +273,22 @@
     ],
     "privacyNote": "This tool embeds your images into a PDF container. Since taking photos of documents is exactly when privacy matters most, the fact that nothing is uploaded is the point.",
     "faq": [
-      { "q": "What page size should I use?", "a": "A4 suits most document scanning and is the common standard outside North America. Letter is the usual choice in the United States and Canada. Fit-to-image makes the page match the picture, which avoids margins." },
-      { "q": "How do I avoid ugly borders around my scans?", "a": "Choose the fit option rather than stretch, so proportions are preserved. If the image is the only thing on the page, fit-to-image removes the surrounding white space entirely." },
-      { "q": "Will the file be large?", "a": "It depends on your photos. Phone photos are large, and every bit of that detail is kept. If the result is too heavy to send, run it through the compress PDF tool afterwards, which also runs locally." },
-      { "q": "Can I add images after creating the PDF?", "a": "Not into the same file. Add them here and rebuild, or merge additional PDFs with the merge tool. Keeping the original images lets you rebuild at any time." }
+      {
+        "q": "What page size should I use?",
+        "a": "A4 suits most document scanning and is the common standard outside North America. Letter is the usual choice in the United States and Canada. Fit-to-image makes the page match the picture, which avoids margins."
+      },
+      {
+        "q": "How do I avoid ugly borders around my scans?",
+        "a": "Choose the fit option rather than stretch, so proportions are preserved. If the image is the only thing on the page, fit-to-image removes the surrounding white space entirely."
+      },
+      {
+        "q": "Will the file be large?",
+        "a": "It depends on your photos. Phone photos are large, and every bit of that detail is kept. If the result is too heavy to send, run it through the compress PDF tool afterwards, which also runs locally."
+      },
+      {
+        "q": "Can I add images after creating the PDF?",
+        "a": "Not into the same file. Add them here and rebuild, or merge additional PDFs with the merge tool. Keeping the original images lets you rebuild at any time."
+      }
     ]
   },
   {
@@ -227,10 +314,22 @@
     ],
     "privacyNote": "Compression re-encodes the image using the browser's own encoder. Your photos are usually the most personal files you handle, so keeping them on your device is a meaningful difference rather than a marketing line.",
     "faq": [
-      { "q": "What quality setting should I start with?", "a": "Eighty percent is a good default. Most people cannot tell it apart from the original, and the file is often half the size. Drop to sixty for a noticeably lighter file when exact fidelity matters less." },
-      { "q": "Does compressing remove metadata like location?", "a": "Re-encoding an image through the browser generally leaves EXIF data such as GPS coordinates behind, which is often desirable when sharing. Do not rely on it as your only privacy step for highly sensitive photos." },
-      { "q": "Why did my PNG barely shrink?", "a": "PNG is lossless, so quality settings do not apply the way they do to JPG. Convert to JPG first for photographs, or resize the dimensions, which reduces any format." },
-      { "q": "Can I compress and resize at the same time?", "a": "Yes, and it is the most effective combination. Capping the width is frequently the single biggest saving, because a web image rarely needs to be four thousand pixels wide." }
+      {
+        "q": "What quality setting should I start with?",
+        "a": "Eighty percent is a good default. Most people cannot tell it apart from the original, and the file is often half the size. Drop to sixty for a noticeably lighter file when exact fidelity matters less."
+      },
+      {
+        "q": "Does compressing remove metadata like location?",
+        "a": "Re-encoding an image through the browser generally leaves EXIF data such as GPS coordinates behind, which is often desirable when sharing. Do not rely on it as your only privacy step for highly sensitive photos."
+      },
+      {
+        "q": "Why did my PNG barely shrink?",
+        "a": "PNG is lossless, so quality settings do not apply the way they do to JPG. Convert to JPG first for photographs, or resize the dimensions, which reduces any format."
+      },
+      {
+        "q": "Can I compress and resize at the same time?",
+        "a": "Yes, and it is the most effective combination. Capping the width is frequently the single biggest saving, because a web image rarely needs to be four thousand pixels wide."
+      }
     ]
   },
   {
@@ -256,10 +355,22 @@
     ],
     "privacyNote": "Resizing draws the image onto a canvas of the new size and re-encodes it. That is local drawing work, and it needs no connection to complete.",
     "faq": [
-      { "q": "Should I keep the aspect ratio locked?", "a": "Almost always yes. Unlocking lets you set width and height independently, which stretches the picture. That is occasionally wanted, but usually it is an accident." },
-      { "q": "Does enlarging improve quality?", "a": "No. Making an image bigger cannot add detail that was not captured. Enlarged photos look softer. Resize down for quality; resize up only to satisfy a minimum-size requirement." },
-      { "q": "What happens to transparent areas in a PNG?", "a": "They are preserved if the output is PNG. Saving a transparent image as JPG fills transparency with a solid colour, usually white, so keep PNG when you need a transparent background." },
-      { "q": "Can I resize several images to the same size?", "a": "Yes. Drop them all in, set one target, and apply it. This is useful for making a uniform set of thumbnails or product images." }
+      {
+        "q": "Should I keep the aspect ratio locked?",
+        "a": "Almost always yes. Unlocking lets you set width and height independently, which stretches the picture. That is occasionally wanted, but usually it is an accident."
+      },
+      {
+        "q": "Does enlarging improve quality?",
+        "a": "No. Making an image bigger cannot add detail that was not captured. Enlarged photos look softer. Resize down for quality; resize up only to satisfy a minimum-size requirement."
+      },
+      {
+        "q": "What happens to transparent areas in a PNG?",
+        "a": "They are preserved if the output is PNG. Saving a transparent image as JPG fills transparency with a solid colour, usually white, so keep PNG when you need a transparent background."
+      },
+      {
+        "q": "Can I resize several images to the same size?",
+        "a": "Yes. Drop them all in, set one target, and apply it. This is useful for making a uniform set of thumbnails or product images."
+      }
     ]
   },
   {
@@ -285,10 +396,22 @@
     ],
     "privacyNote": "Format conversion decodes one image format and encodes another, using the browser's codecs. It is a self-contained transformation with no need to touch the network.",
     "faq": [
-      { "q": "Why can't JPG keep my transparent background?", "a": "Transparency is a feature of the PNG format. JPG stores a flat grid of colours with no way to mark a pixel as see-through, so a solid colour has to take its place." },
-      { "q": "Will converting make my file smaller?", "a": "For photographs, usually dramatically. For flat graphics, logos and screenshots with few colours, JPG can actually be larger and look worse, so PNG is often the better format for those." },
-      { "q": "What quality should I use?", "a": "Ninety is a good balance for images you will look at closely. Lower values shrink the file further at the cost of visible artefacts around sharp edges and text." },
-      { "q": "Can I convert several PNGs at once?", "a": "Yes. Add as many as you like, apply the same settings, and they come back as a single ZIP download." }
+      {
+        "q": "Why can't JPG keep my transparent background?",
+        "a": "Transparency is a feature of the PNG format. JPG stores a flat grid of colours with no way to mark a pixel as see-through, so a solid colour has to take its place."
+      },
+      {
+        "q": "Will converting make my file smaller?",
+        "a": "For photographs, usually dramatically. For flat graphics, logos and screenshots with few colours, JPG can actually be larger and look worse, so PNG is often the better format for those."
+      },
+      {
+        "q": "What quality should I use?",
+        "a": "Ninety is a good balance for images you will look at closely. Lower values shrink the file further at the cost of visible artefacts around sharp edges and text."
+      },
+      {
+        "q": "Can I convert several PNGs at once?",
+        "a": "Yes. Add as many as you like, apply the same settings, and they come back as a single ZIP download."
+      }
     ]
   },
   {
@@ -314,11 +437,429 @@
     ],
     "privacyNote": "Ordinary OCR means sending your document to somebody's server, and people run OCR on passports, contracts and medical letters. Here the recognition model is downloaded once and then runs locally, so the image itself is never transmitted.",
     "faq": [
-      { "q": "Why is the first run slow?", "a": "The recognition model is a few megabytes of data that your browser downloads the first time. After that it is cached, and later runs start quickly." },
-      { "q": "How accurate is it?", "a": "On clean, straight, high-contrast text it is usually very accurate. Handwriting, heavy skew, low light and decorative fonts reduce accuracy sharply. Expect to proofread anything important." },
-      { "q": "Which languages are supported?", "a": "English is included by default. Other languages load on demand, and each adds to the download because each needs its own model data." },
-      { "q": "Does it keep the layout?", "a": "It returns text in reading order with line breaks. Complex multi-column layouts may come out jumbled, since the tool aims for correct characters rather than exact positioning." },
-      { "q": "Can it read a PDF directly?", "a": "Convert the PDF to images with the PDF to JPG tool first, then run those images through this one. Both steps happen locally." }
+      {
+        "q": "Why is the first run slow?",
+        "a": "The recognition model is a few megabytes of data that your browser downloads the first time. After that it is cached, and later runs start quickly."
+      },
+      {
+        "q": "How accurate is it?",
+        "a": "On clean, straight, high-contrast text it is usually very accurate. Handwriting, heavy skew, low light and decorative fonts reduce accuracy sharply. Expect to proofread anything important."
+      },
+      {
+        "q": "Which languages are supported?",
+        "a": "English is included by default. Other languages load on demand, and each adds to the download because each needs its own model data."
+      },
+      {
+        "q": "Does it keep the layout?",
+        "a": "It returns text in reading order with line breaks. Complex multi-column layouts may come out jumbled, since the tool aims for correct characters rather than exact positioning."
+      },
+      {
+        "q": "Can it read a PDF directly?",
+        "a": "Convert the PDF to images with the PDF to JPG tool first, then run those images through this one. Both steps happen locally."
+      }
+    ]
+  },
+  {
+    "slug": "jpg-to-png",
+    "name": "JPG to PNG",
+    "h1": "Convert JPG to PNG",
+    "title": "JPG to PNG Converter — Lossless, Private, No Upload | privafile",
+    "metaDescription": "Convert JPG images to PNG in your browser with no quality loss and no upload. No signup, no watermark, no file limits.",
+    "shortDescription": "Turn JPG files into lossless PNGs without re-compressing them.",
+    "intro": "Convert JPG to PNG without further degrading the image. Useful when you need a lossless format for editing, or a format that accepts a transparent background later.",
+    "category": "image",
+    "icon": "🔄",
+    "chip": "Image",
+    "accept": "image/jpeg,.jpg,.jpeg",
+    "multiple": true,
+    "dropText": "Drop JPG files here",
+    "acceptHint": "JPG or JPEG files. Several at once is fine.",
+    "steps": [
+      "Drop in your JPG files, or click to choose them.",
+      "Click <strong>Convert to PNG</strong>.",
+      "Download the result. One file downloads directly; several arrive as a ZIP."
+    ],
+    "privacyNote": "Converting between image formats is decoding and re-encoding, which the browser does locally. Your photos are typically your most personal files, so keeping them off a server is a meaningful difference rather than a slogan.",
+    "faq": [
+      {
+        "q": "Will converting to PNG improve the quality?",
+        "a": "No. JPEG is lossy, so the damage was done when the file was first saved. Converting to PNG preserves exactly what the JPG currently contains, without adding further loss — it cannot recover detail that was already discarded."
+      },
+      {
+        "q": "Why is the PNG so much bigger?",
+        "a": "PNG is lossless and stores more data per pixel. A photograph that was 200 KB as JPG can easily be 2 MB as PNG. That is expected, not a fault."
+      },
+      {
+        "q": "When is PNG actually the better choice?",
+        "a": "When you plan to edit and re-save repeatedly, when you need sharp text and line art, or when you need transparency. For photographs you intend to keep as photographs, JPG stays smaller."
+      },
+      {
+        "q": "Does it add a transparent background?",
+        "a": "No. A JPG has no transparency to begin with, so the PNG fills the whole frame. To place the subject on transparency you would need a background-removal tool first."
+      }
+    ]
+  },
+  {
+    "slug": "webp-to-png",
+    "name": "WebP to PNG",
+    "h1": "Convert WebP to PNG",
+    "title": "WebP to PNG Converter — Private, In-Browser, No Upload | privafile",
+    "metaDescription": "Convert WebP images to PNG in your browser. No upload, no signup, no watermark. Works offline once the page has loaded.",
+    "shortDescription": "Turn WebP files into PNG, including animated ones as a still frame.",
+    "intro": "WebP is great for the web and awkward everywhere else — many editors and older programs will not open it. Convert to PNG here to get a format everything accepts.",
+    "category": "image",
+    "icon": "🖼️",
+    "chip": "Image",
+    "accept": "image/webp,.webp",
+    "multiple": true,
+    "dropText": "Drop WebP files here",
+    "acceptHint": "WebP files. Transparent areas are preserved.",
+    "steps": [
+      "Drop in your WebP files.",
+      "Click <strong>Convert to PNG</strong>.",
+      "Download the result — a single file, or a ZIP if you added several."
+    ],
+    "privacyNote": "Decoding WebP and encoding PNG uses the browser's own image codecs. There is no step that requires the network, so the conversion runs with the connection idle.",
+    "faq": [
+      {
+        "q": "Does it keep transparency?",
+        "a": "Yes. WebP supports an alpha channel and so does PNG, so transparent regions survive the conversion intact."
+      },
+      {
+        "q": "What about animated WebP?",
+        "a": "Only the first frame is converted, because PNG in this tool's output is a still image. If you need every frame, that is a different job."
+      },
+      {
+        "q": "The PNG is much larger than the WebP. Why?",
+        "a": "WebP is simply a more efficient format. The same picture as PNG takes more space. That is the trade for compatibility."
+      },
+      {
+        "q": "Why would I convert away from WebP at all?",
+        "a": "Because software support is uneven. Some editors, print pipelines, and older Windows programs still will not open WebP. If a tool rejects your file, converting to PNG usually settles it."
+      }
+    ]
+  },
+  {
+    "slug": "webp-to-jpg",
+    "name": "WebP to JPG",
+    "h1": "Convert WebP to JPG",
+    "title": "WebP to JPG Converter — No Upload, Private, In-Browser | privafile",
+    "metaDescription": "Convert WebP images to JPG in your browser with a quality setting you control. No upload, no signup, no watermark.",
+    "shortDescription": "Convert WebP to widely-supported JPG with quality control.",
+    "intro": "Get a WebP into a JPG that any program will open. You choose the quality, and any transparent areas get filled with a colour you pick.",
+    "category": "image",
+    "icon": "🔁",
+    "chip": "Image",
+    "accept": "image/webp,.webp",
+    "multiple": true,
+    "dropText": "Drop WebP files here",
+    "acceptHint": "WebP files. Choose a fill colour for transparency.",
+    "steps": [
+      "Drop in your WebP files.",
+      "Pick the colour to fill transparent areas, and set the JPG quality.",
+      "Click <strong>Convert to JPG</strong> and download."
+    ],
+    "privacyNote": "Format conversion happens through the browser's codecs, entirely on your machine. No file is transmitted at any point.",
+    "faq": [
+      {
+        "q": "What happens to transparency?",
+        "a": "JPG cannot store it, so transparent pixels are filled with the colour you choose. White is the safe default for documents; black or a matching colour can look better on dark designs."
+      },
+      {
+        "q": "Will the file get smaller or larger?",
+        "a": "Usually smaller, because JPG discards detail WebP kept more efficiently. For graphics with flat colour, JPG can look worse, so keep PNG in mind for those."
+      },
+      {
+        "q": "What quality should I pick?",
+        "a": "Ninety is a good default for images you will examine closely. Lower values shrink further at the cost of visible blocks around edges and text."
+      },
+      {
+        "q": "Can I batch convert?",
+        "a": "Yes. Add as many WebP files as you like, apply one set of settings, and they come back as a single ZIP."
+      }
+    ]
+  },
+  {
+    "slug": "crop-image",
+    "name": "Crop image",
+    "h1": "Crop an image to the area you want",
+    "title": "Crop Image Online — No Upload, Private, In-Browser | privafile",
+    "metaDescription": "Crop images to any area or a fixed aspect ratio in your browser. No upload, no signup, no watermark.",
+    "shortDescription": "Cut an image down to the region you need, freehand or to a ratio.",
+    "intro": "Trim a picture to the part that matters. Drag a freehand region, or lock to a common ratio like 1:1 for avatars or 16:9 for headers.",
+    "category": "image",
+    "icon": "✂️",
+    "chip": "Image",
+    "accept": "image/*",
+    "multiple": false,
+    "dropText": "Drop an image here to crop",
+    "acceptHint": "One image. You will set the crop region next.",
+    "steps": [
+      "Drop in the image you want to crop.",
+      "Choose a ratio or leave it free, then set the crop values. The preview updates as you go.",
+      "Click <strong>Crop and download</strong>."
+    ],
+    "privacyNote": "Cropping redraws the selected region onto a new canvas. It is a local drawing operation, so the image never leaves your device — which matters when you are cropping a photo of a document or an ID.",
+    "faq": [
+      {
+        "q": "How do I get a square image?",
+        "a": "Choose the 1:1 ratio. That locks the crop to a square, which is what most profile pictures and marketplace listings expect."
+      },
+      {
+        "q": "Can I crop by pixel position?",
+        "a": "Yes. Enter the left, top, width and height values directly if you need exact coordinates, or use the ratio presets for a quicker result."
+      },
+      {
+        "q": "Is the original image changed?",
+        "a": "No. Cropping produces a new file. Your source image on disk is untouched, so you can always start over."
+      },
+      {
+        "q": "Does cropping reduce quality?",
+        "a": "It removes pixels outside the region, so the crop is smaller than the original. The pixels you keep are copied at full quality, not re-compressed more than necessary."
+      }
+    ]
+  },
+  {
+    "slug": "rotate-image",
+    "name": "Rotate image",
+    "h1": "Rotate or flip an image",
+    "title": "Rotate & Flip Image Online — No Upload, Private | privafile",
+    "metaDescription": "Rotate images 90, 180 or 270 degrees and flip them horizontally or vertically in your browser. No upload, no signup.",
+    "shortDescription": "Turn an image to the correct orientation, or mirror it.",
+    "intro": "Fix a photo that came out sideways, or mirror an image horizontally. Rotation and flipping both happen on your device.",
+    "category": "image",
+    "icon": "🔃",
+    "chip": "Image",
+    "accept": "image/*",
+    "multiple": true,
+    "dropText": "Drop images here to rotate or flip",
+    "acceptHint": "One or more images. Transparent areas are preserved.",
+    "steps": [
+      "Drop in the images you want to adjust.",
+      "Choose a rotation, a flip, or both.",
+      "Click <strong>Apply</strong> and download the results."
+    ],
+    "privacyNote": "Rotation and flipping are canvas transforms performed by your own browser. No network request is involved at any stage.",
+    "faq": [
+      {
+        "q": "What is the difference between rotating and flipping?",
+        "a": "Rotating turns the image around its centre, so a landscape picture becomes portrait. Flipping mirrors it, so left and right swap but the orientation stays the same. Flipping is useful for a photo taken in a mirror."
+      },
+      {
+        "q": "Does rotating lose quality?",
+        "a": "At 90, 180 and 270 degrees, no — the pixels are rearranged, not resampled. Arbitrary angles would require interpolation, which does soften the image, so this tool sticks to right angles."
+      },
+      {
+        "q": "Can I fix several photos at once?",
+        "a": "Yes. Drop in as many as you like, apply the same transform, and they download together as a ZIP."
+      },
+      {
+        "q": "Will it fix EXIF orientation automatically?",
+        "a": "This tool applies the transform you choose. If a photo already carries a rotation tag that some programs honour and others ignore, choosing the rotation yourself removes the ambiguity."
+      }
+    ]
+  },
+  {
+    "slug": "favicon-generator",
+    "name": "Favicon generator",
+    "h1": "Generate favicons from any image",
+    "title": "Favicon Generator — Create Site Icons Privately, No Upload | privafile",
+    "metaDescription": "Generate favicon PNGs at every standard size from one image, in your browser. No upload, no signup, no watermark.",
+    "shortDescription": "Make every favicon size your site needs from a single image.",
+    "intro": "Turn a logo or image into the full set of icon sizes a website needs. Pick an optional background colour and download the whole pack.",
+    "category": "image",
+    "icon": "⭐",
+    "chip": "Image",
+    "accept": "image/*",
+    "multiple": false,
+    "dropText": "Drop your logo or image here",
+    "acceptHint": "One image. Square images produce the best icons.",
+    "steps": [
+      "Drop in the image you want as your icon.",
+      "Optionally set a background colour, for logos with transparency.",
+      "Click <strong>Generate favicons</strong> to produce every standard size.",
+      "Download the ZIP and copy the sizes your site needs."
+    ],
+    "privacyNote": "Resizing an image to several dimensions is repeated canvas drawing, done locally. Your logo never leaves the browser, so unpublished branding stays unpublished.",
+    "faq": [
+      {
+        "q": "Which sizes does it produce?",
+        "a": "16, 32, 48, 64, 128, 180, 192, 256 and 512 pixels. That covers browser tabs, bookmarks, iOS home screens, Android icons and web app manifests."
+      },
+      {
+        "q": "Should my source image be square?",
+        "a": "Yes, ideally. A non-square image is centred and padded, which can leave visible empty margins. A square source gives a clean result at every size."
+      },
+      {
+        "q": "Do I need a .ico file?",
+        "a": "For modern browsers, no — a PNG named favicon.png linked in your HTML head is enough, and 32×32 is the common choice. .ico is only needed for very old browsers, so this tool focuses on PNG."
+      },
+      {
+        "q": "Why does my icon look blurry at 16 pixels?",
+        "a": "Fine detail cannot survive that reduction. Simple, bold shapes read best at tab size. If your logo is intricate, consider a simplified mark specifically for the smallest sizes."
+      }
+    ]
+  },
+  {
+    "slug": "svg-to-png",
+    "name": "SVG to PNG",
+    "h1": "Convert SVG to PNG at any size",
+    "title": "SVG to PNG Converter — Choose Resolution, No Upload | privafile",
+    "metaDescription": "Convert SVG vector files to PNG at the resolution you choose, in your browser. No upload, no signup, no watermark.",
+    "shortDescription": "Rasterise a vector SVG into a PNG at the size you need.",
+    "intro": "Turn a vector graphic into a PNG for places that will not accept SVG. Because it renders at the size you choose, the output stays crisp.",
+    "category": "image",
+    "icon": "🔺",
+    "chip": "Image",
+    "accept": "image/svg+xml,.svg",
+    "multiple": true,
+    "dropText": "Drop SVG files here",
+    "acceptHint": "SVG files. Choose an output width; height scales to match.",
+    "steps": [
+      "Drop in your SVG files.",
+      "Set the output width in pixels. Height follows the aspect ratio automatically.",
+      "Choose a background colour for transparency, if you need one.",
+      "Click <strong>Convert to PNG</strong> and download."
+    ],
+    "privacyNote": "Rendering SVG to a canvas is done by the browser's own graphics engine. Nothing is uploaded, so unreleased design assets stay on your machine.",
+    "faq": [
+      {
+        "q": "What output size should I choose?",
+        "a": "Match the size you intend to display it at, times two if the screen is high density. A 64 pixel icon should be rendered at 128 or 256 to stay sharp on retina displays."
+      },
+      {
+        "q": "Why does my SVG render oddly?",
+        "a": "Some SVGs reference external fonts or images by URL. Since this tool deliberately makes no network requests, those references cannot load. Flatten text to paths in your editor, or embed the assets, for a faithful result."
+      },
+      {
+        "q": "Does it keep transparency?",
+        "a": "Yes, unless you choose a background colour. Leave the background unset to keep transparent areas transparent."
+      },
+      {
+        "q": "Is the result as sharp as the SVG?",
+        "a": "At the rendered size, yes — it looks identical. Zooming in beyond that size will show pixels, because PNG is a raster format and SVG is not."
+      }
+    ]
+  },
+  {
+    "slug": "image-to-base64",
+    "name": "Image to Base64",
+    "h1": "Convert an image to a Base64 string",
+    "title": "Image to Base64 Converter — Private, In-Browser | privafile",
+    "metaDescription": "Encode an image as a Base64 data URL for embedding in HTML or CSS, entirely in your browser. No upload, no signup.",
+    "shortDescription": "Get a Base64 data URL you can paste straight into HTML or CSS.",
+    "intro": "Encode an image as text so you can embed it directly in a web page or stylesheet. Useful for small icons that should load without a separate request.",
+    "category": "image",
+    "icon": "🔤",
+    "chip": "Developer",
+    "accept": "image/*",
+    "multiple": false,
+    "dropText": "Drop an image here to encode it",
+    "acceptHint": "One image. Keep it small — encoding adds about a third.",
+    "steps": [
+      "Drop in the image you want to encode.",
+      "Click <strong>Encode to Base64</strong>.",
+      "Copy the data URL, or download it as a text file."
+    ],
+    "privacyNote": "Base64 encoding is pure text manipulation of bytes already in memory. It needs no network connection, and your image is never transmitted to produce the string.",
+    "faq": [
+      {
+        "q": "What is a Base64 data URL?",
+        "a": "A way of writing a file as text. It begins with data: followed by the file's media type and the encoded bytes. You can paste it where an image URL would normally go in HTML or CSS."
+      },
+      {
+        "q": "Should I embed large images this way?",
+        "a": "No. Encoding increases size by roughly a third, and the text cannot be cached separately. It suits small icons and logos; anything larger is better served as its own file."
+      },
+      {
+        "q": "Will it work in a CSS background property?",
+        "a": "Yes. Wrap the data URL in url() as you normally would, including the quotes. That is the most common use, avoiding an extra request for a small decorative image."
+      },
+      {
+        "q": "Is the output safe to share?",
+        "a": "Treat it exactly like the image itself. Anyone holding the string can reconstruct the picture, so it offers no protection or obfuscation."
+      }
+    ]
+  },
+  {
+    "slug": "compress-to-target-size",
+    "name": "Compress to target size",
+    "h1": "Compress an image to a target file size",
+    "title": "Compress Image to Exact Size (100KB, 200KB…) — No Upload | privafile",
+    "metaDescription": "Reduce an image to a target file size such as 100 KB by automatic quality search, in your browser. No upload, no signup.",
+    "shortDescription": "Hit a specific size limit by letting the tool find the quality for you.",
+    "intro": "Somewhere has a hard limit — 100 KB, 200 KB, 500 KB. Instead of guessing at quality, tell this tool the ceiling and it searches for the best quality that fits.",
+    "category": "image",
+    "icon": "🎯",
+    "chip": "Image",
+    "accept": "image/*",
+    "multiple": false,
+    "dropText": "Drop an image here",
+    "acceptHint": "One image. Enter the maximum size you are allowed.",
+    "steps": [
+      "Drop in the image that is too large.",
+      "Enter the target size in kilobytes.",
+      "Click <strong>Compress to target</strong>. The tool tries qualities and reports what it found.",
+      "Download the result, or read the note if the target was not reachable."
+    ],
+    "privacyNote": "The search runs entirely in memory, re-encoding the image repeatedly until it fits. No copy is ever sent anywhere; the search is your own processor doing the work.",
+    "faq": [
+      {
+        "q": "How does it hit an exact size?",
+        "a": "It encodes the image at a range of quality levels and picks the highest one that lands under your limit. That takes a few moments on a large image, because several encodings are produced and compared."
+      },
+      {
+        "q": "What if it cannot reach the target?",
+        "a": "It reports the smallest size it could achieve and offers that file. If you need to go smaller, reduce the dimensions as well — pixel count is usually the dominant factor, more than quality."
+      },
+      {
+        "q": "Will the quality suffer?",
+        "a": "Possibly, and the tool tells you the quality it settled on so you can judge. A modest reduction from a generous original is usually invisible; pushing far below the natural size will show artefacts."
+      },
+      {
+        "q": "Why does this take longer than normal compression?",
+        "a": "A single compression is one encoding. This tool performs several, narrowing in on your target, so the work is a multiple of the normal case. It is still typically a second or two."
+      }
+    ]
+  },
+  {
+    "slug": "png-to-ico",
+    "name": "PNG to ICO",
+    "h1": "Convert PNG to ICO for a Windows icon",
+    "title": "PNG to ICO Converter — Multi-Size Windows Icons, No Upload | privafile",
+    "metaDescription": "Convert a PNG into a multi-resolution ICO file for Windows, in your browser. No upload, no signup, no watermark.",
+    "shortDescription": "Build a proper multi-size .ico for Windows apps and shortcuts.",
+    "intro": "Windows icons are not a single image — a good .ico bundles several sizes so Explorer can pick the right one. This tool builds that file from your PNG.",
+    "category": "image",
+    "icon": "🪟",
+    "chip": "Developer",
+    "accept": "image/png,.png",
+    "multiple": false,
+    "dropText": "Drop a PNG here to make an ICO",
+    "acceptHint": "One square PNG. 256×256 or larger gives the best result.",
+    "steps": [
+      "Drop in a square PNG of at least 256×256.",
+      "Click <strong>Create ICO</strong>. The tool writes several sizes into one file.",
+      "Download the .ico and use it for an application icon or shortcut."
+    ],
+    "privacyNote": "Building an ICO is assembling PNG data into a container, which is done in your browser. The file is never uploaded.",
+    "faq": [
+      {
+        "q": "Which sizes go into the ICO?",
+        "a": "16, 32, 48, 64, 128 and 256 pixels. Windows selects the appropriate one for each context, from a small tree-view icon up to a large thumbnail."
+      },
+      {
+        "q": "Does it need to be square?",
+        "a": "Yes, ideally. A non-square source would be distorted, so use a square PNG. 256×256 or 512×512 is the sweet spot."
+      },
+      {
+        "q": "Will transparency be preserved?",
+        "a": "Yes. PNG alpha is carried into the ICO, so the icon will not have an ugly white box behind it on the desktop."
+      },
+      {
+        "q": "Can I use this for a website favicon?",
+        "a": "You can, though a plain PNG linked in your HTML head is generally better for modern browsers. An ICO is most useful for Windows applications and file-type associations."
+      }
     ]
   }
 ]
