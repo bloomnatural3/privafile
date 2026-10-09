@@ -15,6 +15,7 @@
 import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { guides } from './guides.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const SRC = join(root, 'src');
@@ -65,6 +66,7 @@ ${jsonldBlocks.join('\n')}
     <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">🔒</span>privafile</a>
     <nav class="nav" aria-label="Main">
       <a href="/#tools">Tools</a>
+      <a href="/guides/">Guides</a>
       <a href="/privacy/">Privacy proof</a>
       <a href="/how-it-works/">How it works</a>
     </nav>
@@ -93,6 +95,7 @@ ${content}
       <div>
         <h4>About</h4>
         <ul>
+          <li><a href="/guides/">All guides</a></li>
           <li><a href="/privacy/">Privacy proof</a></li>
           <li><a href="/how-it-works/">How it works</a></li>
           <li><a href="/privacy/#no-tracking">No tracking</a></li>
@@ -287,6 +290,142 @@ function homePage() {
   });
 }
 
+/* ---------------- guide (how-to) page ---------------- */
+function renderBlock(b) {
+  if (b.h) return `<h2>${b.h}</h2>`;
+  if (b.p) return `<p>${b.p}</p>`;
+  if (b.ul) return `<ul>${b.ul.map(i => `<li>${i}</li>`).join('')}</ul>`;
+  if (b.ol) return `<ol class="steps">${b.ol.map(i => `<li>${i}</li>`).join('')}</ol>`;
+  if (b.note) return `<div class="guide-note"><strong>Worth knowing:</strong> ${b.note}</div>`;
+  if (b.tool) {
+    const t = tools.find(x => x.slug === b.tool);
+    if (!t) return '';
+    return `<a class="tool-card guide-tool" href="/${t.slug}/">
+      <span class="ico" aria-hidden="true">${t.icon}</span>
+      <span class="guide-tool-body">
+        <strong>${esc(b.label || t.name)}</strong>
+        <span>${esc(t.shortDescription)}</span>
+      </span>
+    </a>`;
+  }
+  return '';
+}
+
+function guidePage(g) {
+  const breadcrumb = {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Guides', item: SITE + '/guides/' },
+      { '@type': 'ListItem', position: 2, name: g.h1, item: `${SITE}/guides/${g.slug}/` }
+    ]
+  };
+  const article = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: g.h1,
+    description: g.metaDescription,
+    datePublished: g.published,
+    dateModified: g.published,
+    author: { '@type': 'Organization', name: 'privafile' },
+    publisher: { '@type': 'Organization', name: 'privafile' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/guides/${g.slug}/` }
+  };
+
+  const related = g.relatedTools
+    .map(s => tools.find(t => t.slug === s))
+    .filter(Boolean);
+  const otherGuides = guides.filter(x => x.slug !== g.slug).slice(0, 4);
+
+  const content = `
+<div class="wrap narrow guide">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span>›</span><a href="/guides/">Guides</a><span>›</span>${esc(g.h1)}
+  </nav>
+
+  <section class="hero" style="padding:30px 0 6px">
+    <h1>${esc(g.h1)}</h1>
+    <p class="lede" style="margin-left:0;text-align:left">${esc(g.lede)}</p>
+    <p class="small muted" style="margin-top:14px">Updated ${esc(g.published)} · no upload, works offline once loaded</p>
+  </section>
+
+  <p class="guide-intro">${esc(g.intro)}</p>
+
+  <div class="guide-body">
+    ${g.body.map(renderBlock).join('\n    ')}
+  </div>
+
+  <section class="section" style="padding:34px 0 0">
+    <h2>Tools used in this guide</h2>
+    <div class="grid cols-2" style="margin-top:16px">
+      ${related.map(t => `
+      <a class="tool-card" href="/${t.slug}/">
+        <span class="ico" aria-hidden="true">${t.icon}</span>
+        <h3>${esc(t.name)}</h3>
+        <p>${esc(t.shortDescription)}</p>
+      </a>`).join('')}
+    </div>
+  </section>
+
+  <section class="section" style="padding:34px 0 0">
+    <h2>Other guides</h2>
+    <ul class="guide-list">
+      ${otherGuides.map(x => `<li><a href="/guides/${x.slug}/">${esc(x.h1)}</a></li>`).join('')}
+    </ul>
+    <p style="margin-top:18px"><a class="btn secondary" href="/guides/">All guides</a></p>
+  </section>
+</div>`;
+
+  return layout({
+    title: g.title,
+    description: g.metaDescription,
+    canonical: `/guides/${g.slug}/`,
+    content,
+    jsonldBlocks: [jsonld(article), jsonld(breadcrumb)]
+  });
+}
+
+function guidesIndexPage() {
+  const itemList = {
+    '@context': 'https://schema.org', '@type': 'ItemList',
+    itemListElement: guides.map((g, i) => ({
+      '@type': 'ListItem', position: i + 1, name: g.h1, url: `${SITE}/guides/${g.slug}/`
+    }))
+  };
+
+  const content = `
+<div class="wrap">
+  <section class="hero" style="padding:34px 0 10px">
+    <h1>Guides</h1>
+    <p class="lede">Straight answers to the questions that come up when you are actually trying to get something done — and honest about the parts that are not simple.</p>
+  </section>
+
+  <section class="section" style="padding-top:10px">
+    <div class="grid cols-2">
+      ${guides.map(g => `
+      <a class="tool-card guide-card" href="/guides/${g.slug}/">
+        <h3>${esc(g.h1)}</h3>
+        <p>${esc(g.lede)}</p>
+      </a>`).join('')}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card narrow" style="margin:0 auto">
+      <h2 class="mt-0">Why these exist</h2>
+      <p>Most file-tool sites publish a page per keyword and call it content. These are written for the cases where the obvious answer is incomplete — the cover page that should not be numbered, the photo that carries your address, the upload limit that rejects a perfectly good document.</p>
+      <p>Every guide states its caveats. If a technique has a downside, it is in the text rather than buried.</p>
+    </div>
+  </section>
+</div>`;
+
+  return layout({
+    title: 'Guides — Practical, Honest How-Tos for PDFs and Images | privafile',
+    description: 'Step-by-step guides for merging PDFs privately, removing photo location data, numbering pages, and the details that actually trip people up.',
+    canonical: '/guides/',
+    content,
+    jsonldBlocks: [jsonld(itemList)]
+  });
+}
+
 /* ---------------- static pages ---------------- */
 function privacyPage() {
   const content = `
@@ -382,7 +521,11 @@ Sitemap: ${SITE}/sitemap.xml
 `;
 }
 function sitemap() {
-  const urls = ['/', '/privacy/', '/how-it-works/', ...tools.map(t => `/${t.slug}/`)];
+  const urls = [
+    '/', '/guides/', '/privacy/', '/how-it-works/',
+    ...guides.map(g => `/guides/${g.slug}/`),
+    ...tools.map(t => `/${t.slug}/`)
+  ];
   const today = new Date().toISOString().slice(0, 10);
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -400,6 +543,8 @@ mkdirSync(OUT, { recursive: true });
 write('index.html', homePage());
 write('privacy/index.html', privacyPage());
 write('how-it-works/index.html', howPage());
+write('guides/index.html', guidesIndexPage());
+guides.forEach(g => write(`guides/${g.slug}/index.html`, guidePage(g)));
 tools.forEach(t => write(`${t.slug}/index.html`, toolPage(t)));
 write('robots.txt', robots());
 write('sitemap.xml', sitemap());
@@ -448,5 +593,7 @@ write('_headers', `/*
   Cross-Origin-Opener-Policy: same-origin
 `);
 
-console.log(`✔ built ${tools.length} tools + 3 static pages → dist/`);
-console.log(`  ${tools.map(t => t.slug).join(', ')}`);
+console.log(`✔ built ${tools.length} tools + ${guides.length} guides + 3 static pages → dist/`);
+console.log(`  sitemap: ${1 + 1 + guides.length + 3 + tools.length} URLs`);
+console.log(`  tools:  ${tools.map(t => t.slug).join(', ')}`);
+console.log(`  guides: ${guides.map(g => g.slug).join(', ')}`);
